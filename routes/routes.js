@@ -57,7 +57,7 @@ async function uploadToCloudinary(file, folder, quality = null) {
 
 // ✅ Routes
 router.get("/", Islog, (req, res) => {
-    res.redirect("Home2");
+    res.redirect("signup");
 });
 
 router.get("/signup", (req, res) => {
