@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VibeShare | Home</title>
+
+  <link rel="stylesheet" href="/css/hoemstyle.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Times New Roman', Times, serif;
+    }
+
+    body {
+      display: flex;
+      height: 100vh;
+      background-color: #000000;
+    }
+
+    .sidebar {
+      width: 220px;
+      /* position: fixed; */
+      height: 100%;
+
+      /* background: #000000; */
+      /* background: linear-gradient(to bottom, #89f7fe, #66a6ff); */
+      /* background-image: linear-gradient(to top, #9795f0 0%, #fbc8d4 100%); */
+      /* background: #7c41f5; */
+      color: rgb(255, 255, 255);
+      /* border: 12px solid red; */
+      /* position: fixed; */
+      display: flex;
+      /* border-radius: 4rem; */
+      gap: 2.5rem;
+      flex-direction: column;
+      padding: 2rem 1rem;
+    }
+
+    .logo h1 {
+      font-size: 2.3rem;
+      color: #ffffff;
+      font-family: 'Times New Roman', Times, serif;
+      font-style: italic;
+      letter-spacing: 3px;
+      font-weight: 700;
+      /* font-size: 3rem; */
+    }
+
+    .logo {
+      /* border: 2px solid rebeccapurple; */
+      display: flex;
+      width: 100%;
+      height: 6rem;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: .5rem;
+    }
+
+
+
+    .sidebar h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 1.5rem;
+      font-family: 'Times New Roman', Times, serif;
+      /* font-size: 2rem; */
+    }
+
+    .sidebar a {
+      display: block;
+
+      padding: 0.8rem 1rem;
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 0.5rem;
+      font-size: 1.3rem;
+      font-family: 'Times New Roman', Times, serif;
+      border-radius: 5px;
+    }
+
+    .sidebar a:hover {
+      background-color: #495057;
+      color: white;
+      border: 2px solid white;
+      /* transition: .2s; */
+    }
+
+    .main-content {
+      flex: 1;
+      padding: 2rem;
+    }
+
+    .header {
+      display: flex;
+      /* justify-content: space-between; */
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 2rem;
+      /* border: 2px solid rebeccapurple; */
+    }
+
+    .logo p {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 1.2rem;
+      font-style: italic;
+    }
+
+    .header h1 {
+      font-size: 2rem;
+      color: #333;
+      font-family: 'Times New Roman', Times, serif;
+      font-style: italic;
+      letter-spacing: 3px;
+      font-weight: 700;
+      font-size: 3rem;
+    }
+
+    .form-section {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      max-width: 600px;
+      overflow: scroll;
+    }
+
+    .form-section h2 {
+      margin-bottom: 1.5rem;
+      color: #333;
+    }
+
+    .form input[type="text"],
+    .form input[type="submit"] {
+      display: block;
+      width: 100%;
+      padding: 0.8rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    .form input[type="submit"] {
+      background-color: #007bff;
+      color: white;
+      cursor: pointer;
+      border: none;
+    }
+
+    .form input[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+
+    .img {
+      /* margin-bottom: 1rem;  */
+      /* border: 2px solid rebeccapurple; */
+      /* background-color:transparent;
+
+   overflow: hidden;
+  max-width: 100%;
+  min-height: 19rem; 
+  height: 20rem;
+  width: min(470px, 100vw); 
+  object-fit: contain;  */
+      position: relative;
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+      background-color: transparent;
+      aspect-ratio: 1/1;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: transparent;
+      /* border: 2px solid rebeccapurple */
+    }
+
+
+
+    img {
+      /* width: 80%;
+  height: 80%;
+   object-fit: contain; */
+      /* Ensures full image fits inside  */
+
+      width: 100%;
+      /* Fill container width */
+      height: 100%;
+      /* Fill container height */
+      object-fit: contain;
+      /* Show full image without cropping */
+      display: block
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="main1">
+
+    <div class="sidebar">
+      <div class="logo">
+        <p>Welocome To </p>
+        <h1>VibeShare </h1>
+      </div>
+
+      <a href="/Home2">🏠 Home</a>
+      <a href="/create">✏️ Create Post</a>
+      <a href="/mypost">🖥️ My Post</a>
+      <a href="/logout">🚪 Logout</a>
+    </div>
+
+    <div class="output">
+
+      <div class="ot2">
+        <% if (posts.length> 0) { %>
+          <% posts.forEach(post=> { %>
+            <div class="post-card">
+              <div class="post-header">
+                <div class="avatar">
+                  <%= post.user.name.charAt(0).toUpperCase() %>
+                </div>
+                <div class="user-info">
+
+                  <h3 class="username">
+                    <%= post.userName %>
+                  </h3>
+                  <p class="post-date">
+                    <%= new Date(post.createdAt).toLocaleDateString() %>
+                  </p>
+                </div>
+              </div>
+
+              <div class="post-content">
+
+                <div class="img"><img src="<%= post.fileUlr %>" alt=""></div>
+                <h4>
+                  <%= post.content %>
+                </h4>
+                <p>
+                  <%= post.description %>
+                </p>
+              </div>
+
+              <div class="post-actions">
+                <form action="/like/<%= post._id %>" method="get">
+                  <button type="submit" class="like-btn">
+                    <%= post.like.length %>
+                      <%= post.like.indexOf(user._id)===-1 ? " 💟 Like" : "Unlike" %>
+                  </button>
+                </form>
+                <form action="/edit/<%= post._id %>" method="get">
+                  <% if (post.user._id.toString()===user._id.toString()) { %>
+                    <a href="/edit/<%= post._id %>" class="like-btn">✏️ Edit</a>
+                    <% } %>
+                </form>
+
+              </div>
+            </div>
+            <% }) %>
+              <% } else { %>
+                <p>No posts found</p>
+                <% } %>
+
+
+
+
+      </div>
+      <div class="ot3"></div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+</body>
+
+</html>

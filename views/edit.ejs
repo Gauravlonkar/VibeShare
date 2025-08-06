@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard | Home</title>
+  <link rel="stylesheet" href="/css/hoemstyle.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      display: flex;
+      height: 100vh;
+      background-color: #f8f9fc;
+    }
+
+    .sidebar {
+      width: 220px;
+      background: #343a40;
+      color: white;
+      padding: 2rem 1rem;
+    }
+
+    .sidebar h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 1.5rem;
+    }
+
+    .sidebar a {
+      display: block;
+      padding: 0.8rem 1rem;
+      color: #ccc;
+      text-decoration: none;
+      margin-bottom: 0.5rem;
+      border-radius: 5px;
+    }
+
+    .sidebar a:hover {
+      background-color: #495057;
+      color: white;
+    }
+
+    .main-content {
+      flex: 1;
+      padding: 2rem;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+
+    .header h1 {
+      font-size: 2rem;
+      color: #333;
+    }
+
+    .form-section {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      max-width: 600px;
+    }
+
+    .form-section h2 {
+      margin-bottom: 1.5rem;
+      color: #333;
+    }
+
+    .form input[type="text"],
+    .form input[type="submit"] {
+      display: block;
+      width: 100%;
+      padding: 0.8rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    .form input[type="submit"] {
+      background-color: #007bff;
+      color: white;
+      cursor: pointer;
+      border: none;
+    }
+
+    .form input[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+
+    .form-container {
+      background-color: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      width: 100%;
+      max-width: 500px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: #333;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      color: #444;
+    }
+
+    input[type="text"],
+    textarea {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1.2rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+      resize: vertical;
+      transition: border 0.3s ease;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: #007bff;
+      outline: none;
+    }
+
+    button {
+      width: 100%;
+      padding: 0.8rem;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #005dc1;
+    }
+
+    .back-link {
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    .back-link a {
+      color: #007bff;
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+
+    .back-link a:hover {
+      text-decoration: underline;
+    }
+
+    .sidebar h2 {
+      color: white;
+      font-family: 'Times New Roman', Times, serif;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="sidebar">
+    <h2>My Dashboard</h2>
+    <a href="/home">🏠 Home</a>
+    <a href="/create">✏️ Create Post</a>
+    <a href="/mypost">🖥️ My Post</a>
+    <a href="/logout">🚪 Logout</a>
+
+  </div>
+
+  <div class="main-content">
+    <div class="header">
+      <h1>Welcome, <%= user.name %> 👋</h1>
+    </div>
+
+
+    <!-- <div class="post-card">
+  <div class="post-header">
+    <div class="avatar">G</div>
+    <div class="user-info">
+      <h3 class="username">Gaurav Lonkar</h3>
+      <p class="post-date">1234</p>
+    </div>
+  </div>
+
+  <div class="post-content">
+    <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo quaerat minima illo </h4>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id labore earum accusamus rem, mollitia maxime ex fugit doloribus, asperiores, suscipit neque natus? Nulla molestias magnam dolorem, ab blanditiis saepe asperiores.</p>
+  </div>
+
+  <div class="post-actions">
+    <form action="" method="POST">
+      <button type="submit" class="like-btn">❤️</button>
+    </form>
+  </div>
+</div> -->
+
+
+    <div class="output">
+
+      <div class="form-container">
+        <h2>Edit Post</h2>
+        <form action="/update/<%= post.id %>" method="post">
+          <label for="content">Content</label>
+          <input type="text" id="content" name="content" value="<%=post.content %>" required>
+
+          <label for="description">Description</label>
+          <input type="text" id="content" name="description" value="<%=post.description %>" required>
+
+
+          <button type="submit">Update Post</button>
+        </form>
+
+        <div class="back-link">
+          <a href="/home2">← Back to My Posts</a>
+        </div>
+      </div>
+
+
+
+
+
+    </div>
+
+
+
+</body>
+
+</html>

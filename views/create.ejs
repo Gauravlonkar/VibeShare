@@ -1,0 +1,307 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard | Home</title>
+  <link rel="stylesheet" href="/css/hoemstyle.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      display: flex;
+      height: 100vh;
+      background-color: #f8f9fc;
+    }
+
+    .sidebar {
+      width: 220px;
+      background: #343a40;
+      color: white;
+      padding: 2rem 1rem;
+    }
+
+    .sidebar h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 1.5rem;
+    }
+
+    .sidebar a {
+      display: block;
+      padding: 0.8rem 1rem;
+      color: #ccc;
+      text-decoration: none;
+      margin-bottom: 0.5rem;
+      border-radius: 5px;
+    }
+
+    .sidebar a:hover {
+      background-color: #495057;
+      color: white;
+    }
+
+    .main-content {
+      flex: 1;
+      padding: 2rem;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+
+    .header h1 {
+      font-size: 2rem;
+      color: #333;
+    }
+
+    .form-section {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      max-width: 600px;
+    }
+
+    .form-section h2 {
+      margin-bottom: 1.5rem;
+      color: #333;
+    }
+
+    .form input[type="text"],
+    .form input[type="submit"] {
+      display: block;
+      width: 100%;
+      padding: 0.8rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    .form input[type="submit"] {
+      background-color: #007bff;
+      color: white;
+      cursor: pointer;
+      border: none;
+    }
+
+    .form input[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="sidebar">
+    <h2>My Dashboard</h2>
+    <a href="/home">🏠 Home</a>
+    <a href="/create">✏️ Create Post</a>
+    <a href="/mypost">🖥️ My Post</a>
+    <a href="/logout">🚪 Logout</a>
+  </div>
+
+  <div class="main-content">
+    <div class="header">
+    </div>
+
+    <div class="form-section">
+      <h2>Create a New Post</h2>
+      <form action="/Create-post" method="post" class="form" enctype="multipart/form-data">
+        <input required type="file" name="file">
+        <input required type="text" name="content" placeholder="Post Title or Content" />
+        <input required type="text" name="description" placeholder="Short Description" />
+        <input type="submit" value="Upload" />
+        <button type="submit"> Upload</button>
+      </form>
+    </div>
+  </div> -->
+
+<!-- Keep all the previous code as is, and add this below the form-section div -->
+
+<!-- <div class="my-posts-section" style="margin-top: 2rem;">
+
+  </div>
+
+
+</body>
+
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Page</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+    integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="/css/home2.css">
+</head>
+
+<body>
+
+  <div class="main">
+    <div class="navbar">
+      <div class="nav1">
+        <div class="logo"></div>
+        <div class="btn">
+          <a href="/home2"><i class="fa-regular fa-house"></i>Home</a>
+          <a href="/create"> <i class="fa-solid fa-pen-to-square"></i>Create Post</a>
+          <a href="/mypost"> <i class="fa-regular fa-pen-to-square"></i> My Post</a>
+          <a href="/mypost"> <i class="fa-regular fa-circle-user"></i> Friends</a>
+          <a href="/mypost"> <i class="fa-regular fa-address-card"></i> About</a>
+
+
+        </div>
+
+      </div>
+      <a href="" class="mypost"> <i class="fa-solid fa-paper-plane"> </i> Share Vibe</a>
+
+      <div class="profile"><a href="/logout"><i class="fa-solid fa-share-from-square"></i> Logout</a></div>
+    </div>
+
+
+
+
+
+    <div class="content">
+      <div class="hmm">
+        Create Post
+      </div>
+
+      <div class="ot2">
+        <div class="form-section-modern">
+          <h2>Create a New Post</h2>
+          <form action="/Create-post" method="post" enctype="multipart/form-data">
+            <label class="file-upload">
+              <span>📎 Choose Image</span>
+              <input required type="file" name="file" />
+            </label>
+
+            <input required type="text" name="content" placeholder="Post Title or Content" />
+
+            <input required type="text" name="description" placeholder="Short Description" />
+
+            <button type="submit">Upload Post</button>
+          </form>
+        </div>
+
+
+
+
+
+      </div>
+
+    </div>
+    <div class="info">
+      <div class="adminpro">
+        <div class="pic">
+          <%=user.name.charAt(0).toUpperCase() %>
+        </div>
+        <div class="user">
+          <h3>
+            <%= user.name %>
+          </h3>
+          <h5>
+            <%= user.email%>
+          </h5>
+        </div>
+
+      </div>
+      <div class="frndlist">
+        <h1>Suggested Friend</h1>
+        <div class="list">
+          <% users.forEach(user=> { %>
+            <div class="frd">
+              <div class="pic2">
+                <%= user.name.charAt(0).toUpperCase() %>
+              </div>
+              <div class="username">
+                <h3>
+                  <%= user.name %>
+                </h3>
+                <!-- <button type="submit">Follow</button> -->
+              </div>
+            </div>
+            <% }) %>
+
+        </div>
+
+      </div>
+      <div class="news">
+
+        <% if (posts.length> 0) { %>
+          <% posts.forEach(post=> { %>
+            <div class="post-card2">
+              <div class="post-header2">
+                <div class="avatar2">
+                  <%= post.user.name.charAt(0).toUpperCase() %>
+                </div>
+                <div class="user-info2">
+
+                  <h3 class="username22">
+                    <%= post.userName %>
+                  </h3>
+                  <p class="post-date2">
+                    <%= new Date(post.createdAt).toLocaleDateString() %>
+                  </p>
+                </div>
+              </div>
+
+              <div class="post-content2">
+                <h4>
+                  <%= post.content %>
+                </h4>
+                <p>
+                  <%= post.description %>
+                </p>
+              </div>
+
+              <div class="post-actions2">
+                <form action="/like/<%= post._id %>" method="get">
+                  <button type="submit" class="like-btn2">
+                    <%= post.like.length %>
+                      <%= post.like.indexOf(user._id)===-1 ? " Like 💟" : "Unlike" %>
+                  </button>
+                </form>
+                <form action="/edit/<%= post._id %>" method="get">
+                  <% if (post.user._id.toString()===user._id.toString()) { %>
+                    <a href="/edit/<%= post._id %>" class="like-btn2">✏️ Edit</a>
+                    <% } %>
+                </form>
+
+              </div>
+            </div>
+            <% }) %>
+              <% } else { %>
+                <p>No posts found</p>
+                <% } %>
+
+
+
+
+      </div>
+
+
+    </div>
+  </div>
+
+  </div>
+
+</body>
+
+</html>

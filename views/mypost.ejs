@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Page</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+    integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="/css/home2.css">
+</head>
+
+<body>
+
+  <div class="main">
+    <div class="navbar">
+      <div class="nav1">
+        <div class="logo"></div>
+        <div class="btn">
+          <a href="/home2"><i class="fa-regular fa-house"></i>Home</a>
+          <a href="/create"> <i class="fa-solid fa-pen-to-square"></i>Create Post</a>
+          <a href="/mypost"> <i class="fa-regular fa-pen-to-square"></i> My Post</a>
+          <a href="/home2"> <i class="fa-regular fa-circle-user"></i> Friends</a>
+          <a href="/about"> <i class="fa-regular fa-address-card"></i> About</a>
+
+
+        </div>
+
+      </div>
+      <a href="/create" class="mypost"> <i class="fa-solid fa-paper-plane"> </i> Share Vibe</a>
+
+      <div class="profile"><a href="/logout"><i class="fa-solid fa-share-from-square"></i> Logout</a></div>
+    </div>
+
+
+
+
+
+    <div class="content">
+      <div class="hmm">
+        <h3>Welcome, <%= user.name %> 👋</h3>
+
+      </div>
+
+      <div class="ot2">
+        <% if (posts && posts.length> 0) { %>
+          <% const userPosts=posts.filter(p=> p.user._id.toString() === user._id.toString()); %>
+
+            <% if (userPosts.length> 0) { %>
+              <% userPosts.forEach(post=> { %>
+                <div class="post-card">
+                  <div class="post-header">
+                    <div class="avatar">
+                      <%= user.name.charAt(0).toUpperCase() %>
+                    </div>
+                    <div class="user-info">
+                      <h3 class="username2">
+                        <%= user.name %>
+                      </h3>
+                      <p class="post-date">
+                        <%= new Date(post.createdAt).toLocaleDateString() %>
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="post-content">
+                    <div class="img"><img src="<%= post.fileUlr %>" alt=""></div>
+                    <h4>
+                      <%= post.content %>
+                    </h4>
+                    <p>
+                      <%= post.description %>
+                    </p>
+                  </div>
+
+                  <div class="post-actions">
+                    <form action="/like/<%= post._id %>" method="get">
+                      <button type="submit" class="like-btn">
+                        <%= post.like.length %>
+                          <%= post.like.indexOf(user._id)===-1 ? " Like 💟" : "Unlike" %>
+                      </button>
+                    </form>
+
+                    <% if (post.user._id.toString()===user._id.toString()) { %>
+                      <form action="/edit/<%= post._id %>" method="get">
+                        <a href="/edit/<%= post._id %>" class="like-btn">✏️ Edit</a>
+                      </form>
+                      <% } %>
+                  </div>
+                </div>
+                <% }) %>
+                  <% } else { %>
+                    <p>No posts found</p>
+                    <% } %>
+                      <% } else { %>
+                        <p>No posts found</p>
+                        <% } %>
+
+
+
+
+      </div>
+
+    </div>
+    <div class="info">
+      <div class="adminpro">
+        <div class="pic">
+          <%=user.name.charAt(0).toUpperCase() %>
+        </div>
+        <div class="user">
+          <h3>
+            <%= user.name %>
+          </h3>
+          <h5>
+            <%= user.email%>
+          </h5>
+        </div>
+
+      </div>
+      <div class="frndlist">
+        <h1>Suggested Friend</h1>
+        <div class="list">
+          <% users.forEach(user=> { %>
+            <div class="frd">
+              <div class="pic2">
+                <%= user.name.charAt(0).toUpperCase() %>
+              </div>
+              <div class="username">
+                <h3>
+                  <%= user.name %>
+                </h3>
+                <!-- <button type="submit">Follow</button> -->
+              </div>
+            </div>
+            <% }) %>
+
+        </div>
+
+      </div>
+      <div class="news">
+
+        <% if (posts.length> 0) { %>
+          <% posts.forEach(post=> { %>
+            <div class="post-card2">
+              <div class="post-header2">
+                <div class="avatar2">
+                  <%= post.user.name.charAt(0).toUpperCase() %>
+                </div>
+                <div class="user-info2">
+
+                  <h3 class="username22">
+                    <%= post.userName %>
+                  </h3>
+                  <p class="post-date2">
+                    <%= new Date(post.createdAt).toLocaleDateString() %>
+                  </p>
+                </div>
+              </div>
+
+              <div class="post-content2">
+                <h4>
+                  <%= post.content %>
+                </h4>
+                <p>
+                  <%= post.description %>
+                </p>
+              </div>
+
+              <div class="post-actions2">
+                <form action="/like/<%= post._id %>" method="get">
+                  <button type="submit" class="like-btn2">
+                    <%= post.like.length %>
+                      <%= post.like.indexOf(user._id)===-1 ? " Like 💟" : "Unlike" %>
+                  </button>
+                </form>
+                <form action="/edit/<%= post._id %>" method="get">
+                  <% if (post.user._id.toString()===user._id.toString()) { %>
+                    <a href="/edit/<%= post._id %>" class="like-btn2">✏️ Edit</a>
+                    <% } %>
+                </form>
+
+              </div>
+            </div>
+            <% }) %>
+              <% } else { %>
+                <p>No posts found</p>
+                <% } %>
+
+
+
+
+      </div>
+
+
+    </div>
+  </div>
+
+  </div>
+
+</body>
+
+</html>
